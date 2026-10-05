@@ -1,0 +1,36 @@
+! Test case 3: more than 21 source lines.
+   Exercises functions, every keyword, every operator
+   and separator, mixed case, and a comment in mid-line !
+
+function Max_Val (a, b integer)
+{
+    if (a > b) return a; else return b; fi
+}
+
+function scale (x real, factor real)
+    real tmp_1;
+{
+    tmp_1 = x * factor / 2.0;
+    return -tmp_1;
+}
+
+@
+    integer low, high, step, big_9;   ! declarations !
+    real    r1, R2_value;
+    boolean flag;
+
+@
+    get (low, high, step);
+    flag = true;
+    r1 = 0.5;
+    R2_value = scale (r1, r1) + .75;
+    while (low <= high)
+    {
+        big_9 = Max_Val (low, step);
+        if (big_9 == 100) put (big_9); fi
+        if (low < 3) put (low - 1); else put (low * (step + 2)); fi
+        low = low + step;
+    }
+    WHILE (high != 0) high = high - 1;
+    put (R2_value);
+    return;

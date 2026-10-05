@@ -1,0 +1,18 @@
+! Test case 2: fewer than 21 source lines.
+   Covers reals, booleans, relops and if/else/fi !
+@
+    integer num, limit;
+    real    rate_x, result;
+    boolean is_done;
+@
+    get (num, limit);
+    rate_x = .001;
+    result = 123.00 * rate_x - 4.5 / 2.25;
+    is_done = false;
+    if (num >= limit)
+        is_done = true;
+    else
+        num = num + 1;
+    fi
+    if (num != limit) put (num); fi
+    put (result);

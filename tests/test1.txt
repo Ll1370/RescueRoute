@@ -1,0 +1,7 @@
+! Test case 1: fewer than 10 source lines !
+@
+    integer count_1, total;
+@
+    get (count_1);
+    total = count_1 * 2 + 10;
+    put (total);

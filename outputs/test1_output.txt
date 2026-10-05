@@ -1,0 +1,27 @@
+token          lexeme
+------------------------------
+separator      @
+keyword        integer
+identifier     count_1
+separator      ,
+identifier     total
+separator      ;
+separator      @
+keyword        get
+separator      (
+identifier     count_1
+separator      )
+separator      ;
+identifier     total
+operator       =
+identifier     count_1
+operator       *
+integer        2
+operator       +
+integer        10
+separator      ;
+keyword        put
+separator      (
+identifier     total
+separator      )
+separator      ;

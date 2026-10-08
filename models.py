@@ -29,3 +29,11 @@ class Dataset:
     donations: list[Donation]
     recipients: list[Recipient]
     volunteers: list[Volunteer]
+@dataclass(frozen=True)
+class Assignment:
+    donation_id: str
+    recipient_id: str | None
+    volunteer_id: str | None
+    scheduled_time: int | None
+    decision_reason: str
+    status: str

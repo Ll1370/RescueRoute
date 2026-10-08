@@ -36,4 +36,4 @@ class Assignment:
     volunteer_id: str | None
     scheduled_time: int | None
     decision_reason: str
-    status: str
+    status: str # "assigned", "unassigned", or "deferred"

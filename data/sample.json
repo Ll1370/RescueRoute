@@ -1,0 +1,33 @@
+{
+    "donations": [
+        {
+            "donation_id": "D1",
+            "donor_name": "Cafe",
+            "food_type": "prepared",
+            "quantity": 10,
+            "expiry": 120,
+            "pickup_area": "north",
+            "ready_time": 0
+        }
+    ],
+    "recipients": [
+        {
+            "recipient_id": "R1",
+            "organization_name": "Shelter",
+            "accepted_food_types": ["prepared", "produce"],
+            "capacity": 20,
+            "area": "north",
+            "closing_time": 300
+        }
+    ],
+    "volunteers": [
+        {
+            "volunteer_id": "V1",
+            "vehicle_capacity": 15,
+            "area": "north",
+            "available_from": 0,
+            "available_until": 300,
+            "maximum_pickups": 2
+        }
+    ]
+}

@@ -5,7 +5,7 @@ from pathlib import Path
 from fifo import schedule_fifo
 from greedy import schedule_greedy
 from metrics import compute_metrics, compare_strategies
-from reports import generate_comparison_table, generate_explainability_log
+from reports import generate_comparison_table, generate_explainability_log, export_report_to_file
 from loader import load_data
 
 def build_parser() -> argparse.ArgumentParser:
@@ -29,6 +29,13 @@ def build_parser() -> argparse.ArgumentParser:
         "-v", "--verbose",
         action="store_true",
         help="Display decision audit logs for all items rather than a sample",
+    )
+    parser.add_argument(
+        "-e", "--export",
+        type=str,
+        default=None,
+        metavar="FILEPATH",
+        help="Destination path to export the evaluation report (e.g. 'report.txt' or 'report.md')",
     )
 
     return parser
@@ -70,6 +77,18 @@ def main():
 
     sample_limit = len(greedy_assignments) if args.verbose else 3
     print("\n" + generate_explainability_log(dataset, greedy_assignments, limit=sample_limit))
+
+    # Export reports to a file if requested
+    if args.export:
+        export_report_to_file(
+            filepath=args.export,
+            fifo_metrics=fifo_metrics,
+            greedy_metrics=greedy_metrics,
+            deltas=deltas,
+            dataset=dataset,
+            greedy_assignments=greedy_assignments,
+        )
+        print(f"\n>> Report successfully saved to: {args.export}")
 
 
 if __name__ == "__main__":

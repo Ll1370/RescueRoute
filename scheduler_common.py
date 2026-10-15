@@ -38,7 +38,7 @@ def process_donation(donation, recipients, volunteers, state, strategy):
         volunteer_id=volunteer.volunteer_id,
         scheduled_time=scheduled_time,
         decision_reason=(
-            f"Donation {donation.donation_id} was assigned to {recipient.name} with "
+            f"Donation {donation.donation_id} was assigned to recipient {recipient.recipient_id} with "
             f"volunteer {volunteer.volunteer_id} because {reason}."
         ),
         status="assigned",

@@ -14,6 +14,11 @@ source venv/bin/activate
 pip install pytest
 ```
 
+## Running the Application
+```bash
+python main.py
+```
+
 ## Algorithm Design 
 
 Both strategies run on the same input and use the same feasibility check

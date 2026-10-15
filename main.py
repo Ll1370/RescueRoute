@@ -6,6 +6,7 @@ from fifo import schedule_fifo
 from greedy import schedule_greedy
 from metrics import compute_metrics, compare_strategies
 from reports import generate_comparison_table, generate_explainability_log
+from loader import load_data
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
@@ -15,8 +16,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "-d", "--data",
         type=str,
-        default="data",
-        help="Path to directory containing the data files (default: 'data')",
+        default="data/sample.json",
+        help="Path to directory containing the data files (default: 'data/sample.json')",
     )
     parser.add_argument(
         "-u", "--urgent-threshold",
@@ -32,38 +33,13 @@ def build_parser() -> argparse.ArgumentParser:
 
     return parser
 
-### Temporary
-from models import Donation, Recipient, Volunteer, Dataset
-def get_mock_dataset() -> Dataset:
-    """Fallback dataset to keep CLI fully functional while loader.py is pending."""
-    donations = [
-        Donation("D-101", "Downtown Bakery", "baked_goods", 15, 180, "Central", 10),
-        Donation("D-102", "City Grocer", "produce", 25, 60, "North", 20),
-        Donation("D-103", "Suburban Deli", "prepared", 20, 150, "North", 30),
-        Donation("D-104", "Corner Cafe", "dairy", 50, 90, "East", 40),
-    ]
-    recipients = [
-        Recipient("R-201", "Community Shelter", frozenset(["produce", "prepared"]), 40, "North", 300),
-        Recipient("R-202", "Family Pantry", frozenset(["baked_goods"]), 30, "Central", 240),
-    ]
-    volunteers = [
-        Volunteer("V-301", 30, "North", 0, 280, 2),
-        Volunteer("V-302", 20, "Central", 0, 200, 1),
-    ]
-    return Dataset(donations=donations, recipients=recipients, volunteers=volunteers)
-###
 
 def main():
     parser = build_parser()
     args = parser.parse_args()
 
-    # restore once loader.py is added
-    # data_path = Path(args.data)
-    # dataset = load_input_data(str(data_path))
-
-    ### Temporary
-    dataset  = get_mock_dataset()
-    ###
+    data_path = Path(args.data)
+    dataset = load_data(str(data_path))
 
     print(
         f">> Loaded dataset: {len(dataset.donations)} donations, "

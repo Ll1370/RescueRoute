@@ -1,9 +1,12 @@
 # RescueRoute: Transparent Food Rescue Scheduling Engine
 
+> **Disclaimer**: This is an educational prototype using simulated data and should not be used for real-world operational deployment
+
 ## Overview
 RescueRoute matches surplus food donations with community recipients and volunteer drivers using two distinct scheduling strategies:
 1. **FIFO Baseline**: Processes donations strictly by arrival order.
 2. **Greedy Urgency-First**: Prioritizes donations with the least remaining shelf life, using quantity and arrival time as tie-breakers.
+
 
 ## Installation & Setup
 ```bash

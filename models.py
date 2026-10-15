@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 @dataclass(frozen=True)
 class Donation:
     donation_id: str
@@ -29,7 +29,7 @@ class Dataset:
     donations: list[Donation]
     recipients: list[Recipient]
     volunteers: list[Volunteer]
-@dataclass(frozen=True)
+@dataclass
 class Assignment:
     donation_id: str
     recipient_id: str | None
@@ -37,3 +37,5 @@ class Assignment:
     scheduled_time: int | None
     decision_reason: str
     status: str # "assigned", "unassigned", or "deferred"
+    strategy: str = ""  # "fifo" or "greedy"
+    deferred_behind: list[str] = field(default_factory=list)

@@ -119,7 +119,19 @@ planning, not live arrivals). Input list order is arrival order. Each pickup
 is one trip, so vehicle capacity applies per donation. A donation is never
 split across recipients.
 
-## References
+# Individual Contribution Statements
+Bonnie Yang  
+Role: Data & Matching  
+I contributed the data and matching components of RescueRoute, including models.py, loader.py, validation.py, matching.py , and the testing sample datas. These components define the project’s records, load JSON input, check required fields and invalid values, and identify feasible the matches between donation, recepients, and volunteers. The logic checks for the food compatibility, capacity, availability, pickup limits, location, timing, and tracks the usage after assignments.  
+  
+Lyndon Lam  
+Role: Product & Quality Lead
+I contributed the evaluation, explainability, command line interface, and quality assurance components of RescueRoute, including main.py, metrics.py, reports.py, explain.py, and the automated test suite in tests/. These components compute the 8 required system metrics and comparative deltas between FIFO and Greedy strategies, generate human-readable explanations for all assigned, unassigned, and deferred decisions, format terminal ASCII comparison tables and report exports, and provide a 26 test verification suite covering edge cases, constraints, tie-breakers, and strategy divergence.  
+  
+
+
+
+# References
 
 Bonnie's Reference: 
 CSPC335 Week 2 Data Structure PPT 

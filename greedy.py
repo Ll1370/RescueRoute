@@ -2,7 +2,7 @@
 
 GREEDY RULE (state this exactly in the README):
   1. Schedule the donation with the least remaining shelf life first
-     (earliest expiry_time).
+     (earliest expiry).
   2. If two donations expire at the same time, schedule the larger quantity
      first.
   3. If still tied, schedule the one that arrived earlier.
@@ -24,7 +24,7 @@ def priority_key(donation, arrival_index):
     quantity to come out first. arrival_index is the final tie-breaker, and
     since it is unique it also guarantees two keys are never fully equal.
     """
-    return (donation.expiry_time, -donation.quantity, arrival_index)
+    return (donation.expiry, -donation.quantity, arrival_index)
 
 
 def schedule_greedy(donations, recipients, volunteers):
@@ -66,7 +66,7 @@ def _deferral_note(donation, jumped_ahead):
     """Explain why each line-jumper went first, using the rule that decided it."""
     parts = []
     for other in jumped_ahead:
-        if other.expiry_time < donation.expiry_time:
+        if other.expiry < donation.expiry:
             why = "less remaining shelf life"
         else:
             # Same expiry and it arrived later, so quantity must have decided it.

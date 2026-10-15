@@ -1,0 +1,23 @@
+# RescueRoute Strategy Comparison Report
+
+========================================================================
+METRIC                               FIFO       GREEDY     DELTA     
+------------------------------------------------------------------------
+donations_received                           6         6        +0
+donations_assigned                           3         3        +0
+donations_unassigned                         3         3        +0
+food_quantity_rescued                       35        55       +20
+food_quantity_at_risk                       90        70       -20
+urgent_rescue_rate                       33.3%     66.7%    +33.3%
+recipient_capacity_utilization           63.6%    100.0%    +36.4%
+volunteer_capacity_utilization           70.0%    110.0%    +40.0%
+========================================================================
+
+--- Decision Explanations Sample (First 6) ---
+Donation D5 could not be assigned because Donation D5 could not be assigned because no feasible pair was found; reasons encountered: the recipient does not accept this type of food..
+Donation D4 was assigned to R2 with volunteer V2 because it expires in 30 mins, the recipient accepts prepared, capacity is available, and the volunteer can carry 30 units.
+Donation D2 was assigned to R1 with volunteer V1 because it expires in 50 mins, the recipient accepts prepared, capacity is available, and the volunteer can carry 15 units.
+Donation D6 was assigned to R1 with volunteer V1 because it expires in 130 mins, the recipient accepts prepared, capacity is available, and the volunteer can carry 10 units.
+Donation D3 could not be assigned because Donation D3 could not be assigned because no feasible pair was found; reasons encountered: the recipient does not accept this type of food; the recipient does not have enough capacity. Deferred: D3 was considered after D5 (less remaining shelf life), D4 (less remaining shelf life), D6 (less remaining shelf life) under the urgency-first greedy rule..
+Donation D1 could not be assigned because Donation D1 could not be assigned because no feasible pair was found; reasons encountered: the recipient does not have enough capacity; the recipient does not accept this type of food. Deferred: D1 was considered after D5 (less remaining shelf life), D4 (less remaining shelf life), D2 (less remaining shelf life), D6 (less remaining shelf life), D3 (less remaining shelf life) under the urgency-first greedy rule..
+--------------------------------------------------

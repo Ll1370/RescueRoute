@@ -10,7 +10,7 @@ RescueRoute matches surplus food donations with community recipients and volunte
 
 ## Installation & Setup
 ```bash
-git clone <repo-url>
+git clone <https://github.com/Ll1370/RescueRoute.git>
 cd RescueRoute
 python3 -m venv venv
 source venv/bin/activate

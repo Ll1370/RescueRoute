@@ -51,3 +51,26 @@ def test_compare_strategies():
     assert deltas["delta_donations_assigned"] == 1
     assert deltas["delta_food_rescued"] == 15
     assert deltas["delta_urgent_rate"] == 50.0
+
+
+def test_compute_metrics_empty_dataset():
+    empty_dataset = Dataset(donations=[], recipients=[], volunteers=[])
+    metrics = compute_metrics(empty_dataset, assignments=[], urgent_threshold=120)
+
+    assert metrics["donations_received"] == 0
+    assert metrics["donations_assigned"] == 0
+    assert metrics["donations_unassigned"] == 0
+    assert metrics["food_quantity_rescued"] == 0
+    assert metrics["food_quantity_at_risk"] == 0
+    assert metrics["urgent_rescue_rate"] == 0.0
+    assert metrics["recipient_capacity_utilization"] == 0.0
+    assert metrics["volunteer_capacity_utilization"] == 0.0
+
+
+def test_compare_strategies_empty_deltas():
+    empty_fifo = {"food_quantity_rescued": 0, "urgent_rescue_rate": 0.0}
+    empty_greedy = {"food_quantity_rescued": 0, "urgent_rescue_rate": 0.0}
+    deltas = compare_strategies(empty_fifo, empty_greedy)
+
+    assert deltas["delta_food_rescued"] == 0
+    assert deltas["delta_urgent_rate"] == 0.0

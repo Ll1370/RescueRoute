@@ -14,13 +14,6 @@ source venv/bin/activate
 pip install pytest
 ```
 
-Bonnie's Reference: 
-CSPC335 Week 2 Data Structure PPT 
-- Slides 9 Python list
-- Slide 20 Duplicate ID Detection
-- Slide 22 Dictionaries for the format and the meaning for the ID's
-- I used Codex to help to simulated sample data, and to identify and correct formatting, and logic errors.
-
 ## Algorithm Design 
 
 Both strategies run on the same input and use the same feasibility check
@@ -106,3 +99,11 @@ assignment list, plus up to O(D^2) for the `deferred_behind` lists.
 planning, not live arrivals). Input list order is arrival order. Each pickup
 is one trip, so vehicle capacity applies per donation. A donation is never
 split across recipients.
+
+
+Bonnie's Reference: 
+CSPC335 Week 2 Data Structure PPT 
+- Slides 9 Python list
+- Slide 20 Duplicate ID Detection
+- Slide 22 Dictionaries for the format and the meaning for the ID's
+- I used Codex to help to simulated sample data, and to identify and correct formatting, and logic errors.

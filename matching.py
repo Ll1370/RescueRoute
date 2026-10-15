@@ -16,7 +16,6 @@ class SchedulerState:
         self.pickups_used[volunteer_id] += 1
 
 
-# These functions are outside the class so the schedulers can import them.
 def check_pair(donation, recipient, volunteer, state):
     if donation.food_type not in recipient.accepted_food_types:
         return None, "the recipient does not accept this type of food"
@@ -72,8 +71,6 @@ def find_feasible_match(donation, recipients, volunteers, state):
             if reason not in seen_reasons:
                 seen_reasons.add(reason)
                 reasons.append(reason)
-
-    # Report failure only after checking every recipient-volunteer pair.
     reason = "no feasible pair was found; reasons encountered: "
     reason += "; ".join(reasons)
     return None, None, None, reason

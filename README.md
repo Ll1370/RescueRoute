@@ -18,6 +18,17 @@ pip install pytest
 ```bash
 python main.py
 ```
+### 
+
+For additional parameters for the command
+```bash
+python main.py -h
+```
+
+## Running the Tests
+```bash
+python -m pytest tests/ -v
+```
 
 ## Algorithm Design 
 
@@ -105,6 +116,7 @@ planning, not live arrivals). Input list order is arrival order. Each pickup
 is one trip, so vehicle capacity applies per donation. A donation is never
 split across recipients.
 
+## References
 
 Bonnie's Reference: 
 CSPC335 Week 2 Data Structure PPT 

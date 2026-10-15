@@ -93,3 +93,8 @@ def export_report_to_file(
 
     with open(filepath, "w", encoding="utf-8") as f:
         f.write(content)
+
+
+
+
+

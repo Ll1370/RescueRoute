@@ -78,7 +78,17 @@ def compute_metrics(dataset: Dataset, assignments: list[Assignment], urgent_thre
 
 def compare_strategies(fifo_metrics: dict[str, Any], greedy_metrics: dict[str, Any]) -> dict[str, Any]:
     return {
-        "delta_donations_assigned": greedy_metrics["donations_assigned"] - fifo_metrics["donations_assigned"],
-        "delta_food_rescued": greedy_metrics["food_quantity_rescued"] - fifo_metrics["food_quantity_rescued"],
-        "delta_urgent_rate": round(greedy_metrics["urgent_rescue_rate"] - fifo_metrics["urgent_rescue_rate"], 2),
+        "delta_donations_assigned": (
+            greedy_metrics.get("donations_assigned", 0)
+            - fifo_metrics.get("donations_assigned", 0)
+        ),
+        "delta_food_rescued": (
+            greedy_metrics.get("food_quantity_rescued", 0)
+            - fifo_metrics.get("food_quantity_rescued", 0)
+        ),
+        "delta_urgent_rate": round(
+            greedy_metrics.get("urgent_rescue_rate", 0.0)
+            - fifo_metrics.get("urgent_rescue_rate", 0.0),
+            2,
+        ),
     }

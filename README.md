@@ -128,7 +128,9 @@ Lyndon Lam
 Role: Product & Quality Lead
 I contributed the evaluation, explainability, command line interface, and quality assurance components of RescueRoute, including main.py, metrics.py, reports.py, explain.py, and the automated test suite in tests/. These components compute the 8 required system metrics and comparative deltas between FIFO and Greedy strategies, generate human-readable explanations for all assigned, unassigned, and deferred decisions, format terminal ASCII comparison tables and report exports, and provide a 26 test verification suite covering edge cases, constraints, tie-breakers, and strategy divergence.  
   
-
+Darius Majd  
+Role: Algorithm & Optimization Lead  
+I built the two scheduling strategies. The FIFO baseline (fifo.py) uses a deque to process donations in arrival order. The greedy urgency-first strategy (greedy.py) uses a heapq keyed on earliest expiry, then larger quantity, then earlier arrival. Both share the same placement logic (scheduler_common.py), so the comparison isolates the ordering rule. I added deferral tracking so every donation pushed behind later arrivals explains why. I wrote the scheduler tests, including the FIFO vs. greedy difference, the starvation case, and a case where greedy rescues less food than FIFO. I also wrote the README’s algorithm and complexity section which were O(D·R·V) for FIFO and O(D log D + D² + D·R·V) for greedy.  
 
 
 # References

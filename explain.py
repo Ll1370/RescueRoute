@@ -15,7 +15,7 @@ def format_assigned_reason(
     )
 
 def format_unassigned_reason(donation_id: str, primary_blocker: str) -> str:
-    return f"Donation {donation_id} could not be assigned because {primary_blocker}."
+    return f"{primary_blocker}."
 
 def format_deferred_reason(donation_id: str, prioritized_donation_id: str, rule_reason: str) -> str:
     return (
